@@ -17,7 +17,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 
 import java.util.List;
 
-import io.radar.sdk.Radar;
+//import io.radar.sdk.Radar;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainApp extends Application {
@@ -67,7 +67,7 @@ public class MainApp extends Application {
                 .enableDebugLogs();
         PilgrimSdk.with(builder);
 
-        Radar.initialize("");
+//        Radar.initialize("");
 
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         firebaseAnalytics.setAnalyticsCollectionEnabled(true);

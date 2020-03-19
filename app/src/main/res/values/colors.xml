@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#B477CD</color>
-    <color name="colorPrimaryDark">#5D3A63</color>
-    <color name="colorAccent">#1B69A5</color>
-    <color name="colorAccentLight">#0FACE8</color>
+    <color name="colorPrimary">#00a8cc</color>
+    <color name="colorPrimaryDark">#0c7b93</color>
+    <color name="colorAccent">#bbe1fa</color>
+<!--    <color name="colorAccentLight">#0FACE8</color>-->
+    <color name="colorDark">#142850</color>
 
     <color name="colorPrimaryTrans">#66B477CD</color>
     <color name="colorAccentTrans">#661B69A5</color>
@@ -30,9 +31,9 @@
     <color name="tab_color">@color/white_</color>
     <color name="tab_text_color">@color/colorAccent</color>
 
-    <color name="card_accent_color">#040306</color>
+    <color name="card_accent_color">#1b262c</color>
     <color name="card_accent_color_trans">#00040306</color>
-    <color name="dash_bg">#040306</color>
+    <color name="dash_bg">#1b262c</color>
     <color name="opt_round_card_view_dark_background">@color/card_accent_color</color>
 
     <color name="foam_status_pending">#11a9f0</color>

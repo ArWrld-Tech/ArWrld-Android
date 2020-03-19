@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">0xMap</string>
+    <string name="app_name">ArWrld</string>
     <string name="access_token">pk.eyJ1Ijoia3RtZGF2aWQyMjkiLCJhIjoiY2s2amlqcWZtMDRvczNubHU3Z2VtajZhZCJ9.sd8okNUBajuDGrQtlXB50w</string>
-    <string name="font">fonts/times-new-roman.ttf</string>
+    <string name="font">fonts/Kiona-Regular.ttf</string>
 
     <string name="nav_local_map">0x Map</string>
 
-    <string name="nav_oxe_v_map">0xEarth Vision Map</string>
-    <string name="nav_oxe_site">0xEarth Info</string>
-    <string name="nav_oxe_market">0xEarth Marketplace</string>
+    <string name="nav_oxe_v_map">LAND Vision Map</string>
+    <string name="nav_oxe_market">LAND Marketplace</string>
     <string name="nav_oxe_dao">0xEarth DAO</string>
+    <string name="nav_oxe_site">0xEarth Site</string>
 
     <string name="nav_foam_v_map">FOAM Vision Map</string>
     <string name="nav_foam_tool">FOAM Tools</string>

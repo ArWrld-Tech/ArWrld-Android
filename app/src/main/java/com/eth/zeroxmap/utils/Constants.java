@@ -1,11 +1,15 @@
 package com.eth.zeroxmap.utils;
 
 public class Constants {
-    public static final String TAG = "0xMap";
-    public static final String REF_VAL = "0xMap";
+    public static final String TAG = "ArWrld";
+    public static final String REF_VAL = "ArWrld";
+
+    public static final String EARTH_MARKETPALCE = "https://opensea.io/assets/0xearth";
+    public static final String EARTH_SITE = "https://0xearth.gituhb.io";
+    public static final String EARTH_DAO = "https://0xearth.gituhb.io";
+
 
     public static final String FOAM_TOKEN_ADDRESS = "0x4946fcea7c692606e8908002e55a582af44ac121";
-
     public static final String URL_FOAM_TOOLS = "https://foam.tools/#/";
     //Deep Link example
     //#/at/?lng=-74.0053928&lat=40.7054488&zoom=15.00

@@ -43,14 +43,14 @@
             android:name="pilgrim_sdk_key"
             android:value="S5DKV4KTNT5LAUAKMXMGULVKG4OFRZCU0MR2LE3CJQ0LEFWC" />
 
-        <receiver
-            android:name=".service.RadarService"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="io.radar.sdk.RECEIVED" />
-            </intent-filter>
-        </receiver>
+<!--        <receiver-->
+<!--            android:name=".service.RadarService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="io.radar.sdk.RECEIVED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
     </application>
 
 </manifest>

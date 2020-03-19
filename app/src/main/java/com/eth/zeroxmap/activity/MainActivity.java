@@ -17,14 +17,21 @@ import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.activity.BaseActivity;
 import com.eth.zeroxmap.api.Analytics;
 import com.eth.zeroxmap.fragment.ArMapFragment;
+import com.eth.zeroxmap.fragment.OpenMapFragment;
+import com.eth.zeroxmap.fragment.earth.EarthVisionMapFragment;
+import com.eth.zeroxmap.fragment.foam.FoamVisionMapFragment;
+import com.eth.zeroxmap.fragment.nft.WalletViewerFragment;
+import com.eth.zeroxmap.fragment.nft.WorldViewerFragment;
 import com.eth.zeroxmap.utils.Constants;
 import com.eth.zeroxmap.utils.Utils;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
@@ -34,8 +41,8 @@ import java.util.List;
 import info.isuru.sheriff.enums.SheriffPermission;
 import info.isuru.sheriff.helper.Sheriff;
 import info.isuru.sheriff.interfaces.PermissionListener;
-import io.radar.sdk.Radar;
-import io.radar.sdk.RadarTrackingOptions;
+//import io.radar.sdk.Radar;
+//import io.radar.sdk.RadarTrackingOptions;
 
 
 public class MainActivity extends BaseActivity implements PermissionListener {
@@ -79,7 +86,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 
         profile = new ProfileDrawerItem().withName(getString(R.string.app_name))
                 .withIdentifier(100);
-        profile.withEmail("0xMap");
+        profile.withEmail("");
         profile.withIcon(R.mipmap.ic_launcher_web);
 
         headerResult = new AccountHeaderBuilder()
@@ -126,12 +133,12 @@ public class MainActivity extends BaseActivity implements PermissionListener {
     @Override
     public void onResume(){
         super.onResume();
-        RadarTrackingOptions trackingOptions = new RadarTrackingOptions.Builder()
-                .priority(Radar.RadarTrackingPriority.EFFICIENCY)
-                .offline(Radar.RadarTrackingOffline.REPLAY_STOPPED)
-                .sync(Radar.RadarTrackingSync.POSSIBLE_STATE_CHANGES)
-                .build();
-        Radar.startTracking(trackingOptions);
+//        RadarTrackingOptions trackingOptions = new RadarTrackingOptions.Builder()
+//                .priority(Radar.RadarTrackingPriority.EFFICIENCY)
+//                .offline(Radar.RadarTrackingOffline.REPLAY_STOPPED)
+//                .sync(Radar.RadarTrackingSync.POSSIBLE_STATE_CHANGES)
+//                .build();
+//        Radar.startTracking(trackingOptions);
     }
 
     @Override
@@ -177,26 +184,28 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 
         //TODO ICONS
         //divider 0xEarth
+        drawerItems.add(new SectionDrawerItem().withName("0xEarth"));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_v_map))
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(40)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_market))
-                .withIcon(R.mipmap.ic_vision)
+                .withIcon(R.mipmap.ic_token)
                 .withIdentifier(41)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_site))
-                .withIcon(R.mipmap.ic_vision)
+                .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(42)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_dao))
-                .withIcon(R.mipmap.ic_vision)
+                .withIcon(R.mipmap.ic_map)
                 .withIdentifier(43)
                 .withSelectable(true));
 
         //divider FOAM
+        drawerItems.add(new SectionDrawerItem().withName("FOAM"));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_foam_v_map))
-                .withIcon(R.mipmap.ic_tools)
+                .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(1)
                 .withSelectable(false));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_foam_tool))
@@ -212,6 +221,17 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIdentifier(4)
                 .withSelectable(false));
 
+        drawerItems.add(new SectionDrawerItem().withName("NFT / Digital Collectibles"));
+        drawerItems.add(new PrimaryDrawerItem().withName("Add to the World")
+                .withIcon(R.mipmap.ic_vision)
+                .withIdentifier(50)
+                .withSelectable(true));
+        drawerItems.add(new PrimaryDrawerItem().withName("View Wallet")
+                .withIcon(R.mipmap.ic_vision)
+                .withIdentifier(51)
+                .withSelectable(true));
+
+        drawerItems.add(new SectionDrawerItem().withName("Extras"));
         //Wallets for easy user access
         if(Utils.isAppInstalled(mContext, Constants.TRUST_WALLET_PACKAGE)){
             drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_trust_wallet))
@@ -261,17 +281,14 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 //                            Analytics.sendAnalyticEvent());
                             //Load AR
                             getSupportActionBar().setTitle(getResources().getString(R.string.nav_local_map));
-                            swapFragment(new ArMapFragment());
+                            swapFragment(new OpenMapFragment());
                         }
 
                         if (drawerItem.getIdentifier() == 1) {
-//                            Analytics.sendAnalyticEvent());
                             //Load AR
                             getSupportActionBar().setTitle(getResources().getString(R.string.nav_foam_v_map));
-                            swapFragment(new ArMapFragment());
+                            swapFragment(new FoamVisionMapFragment());
                         }
-
-                        //External URLs
                         if (drawerItem.getIdentifier() == 2) {
                             Utils.urlIntentWeb3(mContext, Constants.URL_FOAM_TOOLS);
                         }
@@ -280,6 +297,30 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                         }
                         if (drawerItem.getIdentifier() == 4) {
                             Utils.urlIntentWeb3(mContext, Constants.URL_FOAM_TOKEN_UNISWAP);
+                        }
+
+                        if (drawerItem.getIdentifier() == 40) {
+                            getSupportActionBar().setTitle(getResources().getString(R.string.nav_oxe_v_map));
+                            swapFragment(new EarthVisionMapFragment());
+                        }
+                        if (drawerItem.getIdentifier() == 41) {
+                            Utils.urlIntentWeb3(mContext, Constants.EARTH_MARKETPALCE);
+                        }
+                        if (drawerItem.getIdentifier() == 42) {
+                            Utils.urlIntentWeb3(mContext, Constants.EARTH_SITE);
+                        }
+                        if (drawerItem.getIdentifier() == 43) {
+                            Utils.urlIntentWeb3(mContext, Constants.EARTH_DAO);
+                        }
+
+
+                        if (drawerItem.getIdentifier() == 50) {
+                            getSupportActionBar().setTitle("NFT Visuals");
+                            swapFragment(new WorldViewerFragment());
+                        }
+                        if (drawerItem.getIdentifier() == 51) {
+                            getSupportActionBar().setTitle("NFT Wallet");
+                            swapFragment(new WalletViewerFragment());
                         }
 
                         //Open given wallets
@@ -316,7 +357,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withSelectable(false));
 
         if (savedInstanceState == null) {
-            result.setSelection(1, true);
+            result.setSelection(999, true);
             headerResult.setActiveProfile(profile);
         }
 
