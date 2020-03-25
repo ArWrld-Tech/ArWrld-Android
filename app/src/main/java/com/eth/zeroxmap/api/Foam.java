@@ -81,11 +81,11 @@ public class Foam {
                 .setCallback(callback);
     }
 
-    public static void fetchLocalPoi(Context mContext, Location lastLocation, boolean challengeOnly, FutureCallback<Response<String>> callback) {
-        double lonLeft = lastLocation.getLongitude() - Math.toDegrees(radius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
-        double lonRight = lastLocation.getLongitude() + Math.toDegrees(radius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
-        double latTop = lastLocation.getLatitude() + Math.toDegrees(radius / R1);
-        double latBottom = lastLocation.getLatitude() - Math.toDegrees(radius / R1);
+    public static void fetchLocalPoi(Context mContext, Location lastLocation, double customRadius, boolean challengeOnly, FutureCallback<Response<String>> callback) {
+        double lonLeft = lastLocation.getLongitude() - Math.toDegrees(customRadius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
+        double lonRight = lastLocation.getLongitude() + Math.toDegrees(customRadius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
+        double latTop = lastLocation.getLatitude() + Math.toDegrees(customRadius / R1);
+        double latBottom = lastLocation.getLatitude() - Math.toDegrees(customRadius / R1);
 
         String url = BASE_URL + String.format(ENDPOINT_POI, lonLeft, latBottom, lonRight, latTop);
         if(challengeOnly){
@@ -109,11 +109,11 @@ public class Foam {
                 .setCallback(callback);
     }
 
-    public static void fetchLocalSignal(Context mContext, Location lastLocation, FutureCallback<Response<String>> callback) {
-        double lonLeft = lastLocation.getLongitude() - Math.toDegrees(radius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
-        double lonRight = lastLocation.getLongitude() + Math.toDegrees(radius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
-        double latTop = lastLocation.getLatitude() + Math.toDegrees(radius / R1);
-        double latBottom = lastLocation.getLatitude() - Math.toDegrees(radius / R1);
+    public static void fetchLocalSignal(Context mContext, Location lastLocation, double customRadius, FutureCallback<Response<String>> callback) {
+        double lonLeft = lastLocation.getLongitude() - Math.toDegrees(customRadius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
+        double lonRight = lastLocation.getLongitude() + Math.toDegrees(customRadius / R1 / Math.cos(Math.toRadians(lastLocation.getLatitude())));
+        double latTop = lastLocation.getLatitude() + Math.toDegrees(customRadius / R1);
+        double latBottom = lastLocation.getLatitude() - Math.toDegrees(customRadius / R1);
 
         String url = BASE_URL + String.format(ENDPOINT_SIGNAL, lonLeft, latBottom, lonRight, latTop);
         Log.d(Constants.TAG, url);

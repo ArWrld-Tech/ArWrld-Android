@@ -192,15 +192,15 @@ public class MainActivity extends BaseActivity implements PermissionListener {
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_market))
                 .withIcon(R.mipmap.ic_token)
                 .withIdentifier(41)
-                .withSelectable(true));
+                .withSelectable(false));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_site))
                 .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(42)
-                .withSelectable(true));
+                .withSelectable(false));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_dao))
                 .withIcon(R.mipmap.ic_map)
                 .withIdentifier(43)
-                .withSelectable(true));
+                .withSelectable(false));
 
         //divider FOAM
         drawerItems.add(new SectionDrawerItem().withName("FOAM"));
@@ -226,10 +226,20 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(50)
                 .withSelectable(true));
-        drawerItems.add(new PrimaryDrawerItem().withName("View Wallet")
+        drawerItems.add(new PrimaryDrawerItem().withName("View Your Collectibles")
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(51)
                 .withSelectable(true));
+
+        drawerItems.add(new SectionDrawerItem().withName("BLVD Map Styles"));
+        drawerItems.add(new PrimaryDrawerItem().withName("View Your Styles")
+                .withIcon(R.mipmap.ic_map)
+                .withIdentifier(60)
+                .withSelectable(true));
+        drawerItems.add(new PrimaryDrawerItem().withName("BLVD Marketplace")
+                .withIcon(R.mipmap.ic_token)
+                .withIdentifier(61)
+                .withSelectable(false));
 
         drawerItems.add(new SectionDrawerItem().withName("Extras"));
         //Wallets for easy user access
@@ -321,6 +331,14 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                         if (drawerItem.getIdentifier() == 51) {
                             getSupportActionBar().setTitle("NFT Wallet");
                             swapFragment(new WalletViewerFragment());
+                        }
+
+                        if (drawerItem.getIdentifier() == 60) {
+                            getSupportActionBar().setTitle("BLVD Map Styles");
+                            swapFragment(new WorldViewerFragment());
+                        }
+                        if (drawerItem.getIdentifier() == 61) {
+                            Utils.urlIntentWeb3(mContext, Constants.BLVD_MARKETPALCE);
                         }
 
                         //Open given wallets

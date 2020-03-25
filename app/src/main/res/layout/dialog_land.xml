@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ar_blob_bg"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/land_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/ic_earth_marker" />
+
+        <TextView
+            android:id="@+id/foam_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="LAND"
+            android:textColor="@color/white_"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/foam_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Name: "
+            android:textColor="@color/white_"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/foam_addy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Addy: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/foam_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Desc: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/foam_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Tags: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/foam_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Web: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/foam_geohash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Geohash: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/foam_p_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="#: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/foam_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Owner: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/foam_dist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Distance: "
+            android:textColor="@color/white_"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/foam_btn_map"
+                android:text="View on OpenSea"
+                android:backgroundTint="@color/black_overlay"
+                android:textColor="@color/white_"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="56dp" />
+
+            <Button
+                android:id="@+id/foam_btn_close"
+                android:backgroundTint="@color/black_overlay"
+                android:textColor="@color/white_"
+                android:text="Close"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="56dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
