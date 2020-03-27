@@ -2,6 +2,7 @@ package com.eth.zeroxmap.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.RequestOptions;
 import com.eth.zeroxmap.R;
+import com.eth.zeroxmap.activity.ArNftViewerActivity;
 import com.eth.zeroxmap.model.opensea.Asset;
 import com.eth.zeroxmap.model.styles.BlvdMap;
 import com.eth.zeroxmap.utils.CircleTransform;
@@ -30,6 +32,8 @@ import com.eth.zeroxmap.utils.Utils;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.List;
+
+import jnr.ffi.annotations.In;
 
 public class OpenSeaWalletAdapter extends RecyclerView.Adapter<OpenSeaWalletAdapter.ViewHolder> {
 
@@ -202,6 +206,10 @@ public class OpenSeaWalletAdapter extends RecyclerView.Adapter<OpenSeaWalletAdap
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //TODO launch AR Viewer?
+                            Intent intent = new Intent(mContext, ArNftViewerActivity.class);
+                            intent.putExtra("url", movies.get(position).imageUrl);
+                            intent.putExtra("name", movies.get(position).name);
+                            mContext.startActivity(intent);
 //                        fetchCryptoMotors(movies.get(position), alertDialog);
 //                        if(TextUtils.equals(movies.get(position).assetContract.address.toLowerCase(), "0x30a2fa3c93fb9f93d1efeffd350c6a6bb62ba000")){
 //                            fetchCryptoMotors(movies.get(position),alertDialog);
@@ -215,10 +223,14 @@ public class OpenSeaWalletAdapter extends RecyclerView.Adapter<OpenSeaWalletAdap
                         }
                     });
         }
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, HtmlUtils.fromHtml("<font color='#FFFFFF'>Close</font>"),
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, HtmlUtils.fromHtml("<font color='#FFFFFF'>View in AR</font>"),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        Intent intent = new Intent(mContext, ArNftViewerActivity.class);
+                        intent.putExtra("imgUrl", movies.get(position).imageUrl);
+                        intent.putExtra("name", movies.get(position).name);
+                        mContext.startActivity(intent);
                     }
                 });
         if (Utils.isBlvdMapAsset(mContext, movies.get(position))) {

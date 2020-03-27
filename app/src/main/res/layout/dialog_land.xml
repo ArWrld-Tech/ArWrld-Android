@@ -142,10 +142,10 @@
 
             <Button
                 android:id="@+id/foam_btn_map"
-                android:text="View on OpenSea"
+                android:text="View Listing"
                 android:backgroundTint="@color/black_overlay"
                 android:textColor="@color/white_"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="56dp" />
@@ -155,7 +155,7 @@
                 android:backgroundTint="@color/black_overlay"
                 android:textColor="@color/white_"
                 android:text="Close"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="56dp" />

@@ -10,12 +10,11 @@
     <string name="nav_oxe_dao">0xEarth DAO</string>
     <string name="nav_oxe_site">0xEarth Site</string>
 
-    <string name="nav_foam_v_map">FOAM Vision Map</string>
+    <string name="nav_foam_v_map">POI Vision Map</string>
     <string name="nav_foam_tool">FOAM Tools</string>
     <string name="nav_foam_map">FOAM dApp Map</string>
-
-
     <string name="nav_foam_tokens">Get FOAM Tokens</string>
+
     <string name="nav_trust_wallet">Open Trust Wallet</string>
     <string name="nav_meta_wallet">Open MetaMask Wallet</string>
     <string name="nav_status_wallet">Open Status Wallet</string>

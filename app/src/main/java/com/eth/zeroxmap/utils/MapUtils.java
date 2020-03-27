@@ -1,6 +1,7 @@
 package com.eth.zeroxmap.utils;
 
 
+import android.location.Location;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -127,5 +128,12 @@ public class MapUtils {
             Log.e(Constants.TAG, "ASSET-LATLNG: " + e.toString());
         }
         return new LatLng(0, 0);
+    }
+
+    public static Location locationFromLatLng(LatLng latLng){
+        Location location = new Location("latlng");
+        location.setLongitude(latLng.getLongitude());
+        location.setLatitude(latLng.getLatitude());
+        return location;
     }
 }

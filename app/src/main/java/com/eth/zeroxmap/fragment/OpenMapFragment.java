@@ -69,7 +69,12 @@ import com.mapbox.mapboxsdk.plugins.localization.LocalizationPlugin;
 import com.mapbox.mapboxsdk.style.layers.LineLayer;
 import com.mapbox.mapboxsdk.style.sources.VectorSource;
 
+import org.web3j.utils.Convert;
+import org.web3j.utils.Numeric;
+
 import java.lang.ref.WeakReference;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,6 +100,7 @@ public class OpenMapFragment extends BaseFragment {
 
     private Location lastLoc = null;
     private IconFactory iconFactory;
+    private Icon forSaleIcon;
     private Icon earthIcon;
     private Icon baseIcon;
     private Icon chalIcon;
@@ -109,6 +115,7 @@ public class OpenMapFragment extends BaseFragment {
         mContext = getContext();
         iconFactory = IconFactory.getInstance(mContext);
         earthIcon = iconFactory.fromResource(R.mipmap.ic_earth_marker);
+        forSaleIcon = iconFactory.fromResource(R.mipmap.ic_for_sale);
         baseIcon = iconFactory.fromResource(R.mipmap.ic_marker);
         chalIcon = iconFactory.fromBitmap(IconUtils.returnBitmapDrawable(mContext, R.drawable.foam_circle_challenged));
         pendIcon = iconFactory.fromBitmap(IconUtils.returnBitmapDrawable(mContext, R.drawable.foam_circle_pending));
@@ -317,9 +324,14 @@ public class OpenMapFragment extends BaseFragment {
     private void addNewEarth(Asset earth) {
 //        LatLng location = MapUtils.assetToLatLng(earth);
 
+        Icon icon = earthIcon;
+        if(earth.sellOrders.size() > 0){
+            icon = forSaleIcon;
+        }
+
         map.addMarker(new MarkerOptions()
                 .position(MapUtils.assetToLatLng(earth))
-                .icon(earthIcon)
+                .icon(icon)
                 .title("0xEarthLAND:" + earth.name)
                 .snippet(earth.tokenId));
 
@@ -670,7 +682,21 @@ public class OpenMapFragment extends BaseFragment {
         fDesc.setText(asset.description);
 
         TextView fTags = dialog.findViewById(R.id.foam_tags);
-        fTags.setText("Price: " + asset.currentPrice);
+        if(asset.sellOrders.size() > 0){
+            try{
+                BigDecimal price = Convert.fromWei(asset.sellOrders.get(0).currentPrice, Convert.Unit.ETHER);
+
+                fTags.setText("Price: " + price.toEngineeringString());
+                Log.d(Constants.TAG, "ETHER PRICE : " + price.toString());
+                Log.d(Constants.TAG, "ETHER PRICE : " + price.toPlainString());
+//                Log.d(Constants.TAG, "ETHER PRICE : " + price.toEngineeringString());
+            }catch (Exception e){
+                Log.e(Constants.TAG, "ETHER PRICE : " + e.toString());
+                fTags.setText("Price: " + asset.sellOrders.get(0).currentPrice);
+            }
+        }else {
+            fTags.setText("Price: " + asset.currentPrice);
+        }
 
         TextView fGeohash = dialog.findViewById(R.id.foam_geohash);
         fGeohash.setText("Owner: " + asset.owner.address);

@@ -222,24 +222,28 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withSelectable(false));
 
         drawerItems.add(new SectionDrawerItem().withName("NFT / Digital Collectibles"));
-        drawerItems.add(new PrimaryDrawerItem().withName("Add to the World")
-                .withIcon(R.mipmap.ic_vision)
-                .withIdentifier(50)
-                .withSelectable(true));
-        drawerItems.add(new PrimaryDrawerItem().withName("View Your Collectibles")
+//        drawerItems.add(new PrimaryDrawerItem().withName("Add to the World")
+//                .withIcon(R.mipmap.ic_vision)
+//                .withIdentifier(50)
+//                .withSelectable(true));
+        drawerItems.add(new PrimaryDrawerItem().withName("Your Collectibles")
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(51)
-                .withSelectable(true));
-
-        drawerItems.add(new SectionDrawerItem().withName("BLVD Map Styles"));
-        drawerItems.add(new PrimaryDrawerItem().withName("View Your Styles")
-                .withIcon(R.mipmap.ic_map)
-                .withIdentifier(60)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName("BLVD Marketplace")
                 .withIcon(R.mipmap.ic_token)
                 .withIdentifier(61)
                 .withSelectable(false));
+
+//        drawerItems.add(new SectionDrawerItem().withName("BLVD Map Styles"));
+//        drawerItems.add(new PrimaryDrawerItem().withName("View Your Styles")
+//                .withIcon(R.mipmap.ic_map)
+//                .withIdentifier(60)
+//                .withSelectable(true));
+//        drawerItems.add(new PrimaryDrawerItem().withName("BLVD Marketplace")
+//                .withIcon(R.mipmap.ic_token)
+//                .withIdentifier(61)
+//                .withSelectable(false));
 
         drawerItems.add(new SectionDrawerItem().withName("Extras"));
         //Wallets for easy user access
@@ -337,6 +341,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                             getSupportActionBar().setTitle("BLVD Map Styles");
                             swapFragment(new WorldViewerFragment());
                         }
+
                         if (drawerItem.getIdentifier() == 61) {
                             Utils.urlIntentWeb3(mContext, Constants.BLVD_MARKETPALCE);
                         }
