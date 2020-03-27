@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="map_style_contracts">
+        <item>0xf101430f3c4295958a06b8366e7a097596f2d612</item>
+    </string-array>
+    <string-array name="map_style_names">
+        <item>BLVD Map Digital Midnight</item>
+        <item>BLVD Map Nomekop</item>
+        <item>BLVD Map Frozen Wonderland</item>
+        <item>BLVD Map Nightshade</item>
+        <item>BLVD Map Endless Summer</item>
+        <item>BLVD Map North Pole</item>
+        <item>BLVD Map Halloween 2019</item>
+        <item>BLVD Map Scribble</item>
+    </string-array>
+</resources>

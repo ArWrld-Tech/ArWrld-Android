@@ -20,7 +20,17 @@ import java.util.List;
 public class OpenSeaApi {
 
     public static void fetchContractAssets(Context mContext, String addy, FutureCallback<Response<String>> callback) {
-        String url = Constants.OPENSEA_API_BASE + addy + "&limit=" + Constants.QUERY_SIZE;
+        String url = Constants.OPENSEA_API_BASE + Constants.OS_CONTRACT_BASE + addy + "&limit=" + Constants.QUERY_SIZE;
+        Log.d(Constants.TAG, url);
+        Ion.with(mContext)
+                .load(url)
+                .asString()
+                .withResponse()
+                .setCallback(callback);
+    }
+
+    public static void fetchUserAssets(Context mContext, String addy, FutureCallback<Response<String>> callback){
+        String url = Constants.OPENSEA_API_BASE + Constants.OS_ASSETS_BASE + addy + "&limit=" + Constants.QUERY_SIZE;
         Log.d(Constants.TAG, url);
         Ion.with(mContext)
                 .load(url)

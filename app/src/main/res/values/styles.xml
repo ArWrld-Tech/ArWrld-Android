@@ -38,6 +38,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/bg_color</item>
+
+        <item name="cardCornerRadius">1dp</item>
+        <item name="cardElevation">3dp</item>
+        <item name="cardBackgroundColor">@color/card_accent_color</item>
+        <item name="android:textColor">@color/white_</item>
     </style>
 
 </resources>

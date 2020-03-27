@@ -14,6 +14,7 @@ import com.foursquare.pilgrim.PilgrimSdkVisitNotification;
 import com.foursquare.pilgrim.Visit;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.List;
 
@@ -66,6 +67,12 @@ public class MainApp extends Application {
                 .logLevel(LogLevel.DEBUG)
                 .enableDebugLogs();
         PilgrimSdk.with(builder);
+
+        new Prefs.Builder()
+                .setContext(this)
+                .setPrefsName(getPackageName())
+                .setUseDefaultSharedPreference(true)
+                .build();
 
 //        Radar.initialize("");
 

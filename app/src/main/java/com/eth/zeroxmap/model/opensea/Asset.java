@@ -43,9 +43,9 @@ public class Asset {
     @SerializedName("external_link")
     @Expose
     public String externalLink;
-//    @SerializedName("asset_contract")
-//    @Expose
-//    public AssetContract assetContract;
+    @SerializedName("asset_contract")
+    @Expose
+    public AssetContract assetContract;
     @SerializedName("owner")
     @Expose
     public Owner owner;

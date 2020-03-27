@@ -5,11 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.Toast;
 
+import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.api.Analytics;
+import com.eth.zeroxmap.model.opensea.Asset;
+import com.eth.zeroxmap.model.styles.BlvdMap;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.Config;
 import com.google.ar.core.Session;
@@ -143,5 +147,69 @@ public class Utils {
     public static int dpToPx(Context context, int dp) {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dp, context.getResources().getDisplayMetrics()));
+    }
+
+    public static boolean isBlvdMapAsset(Context mContext, Asset asset){
+        boolean isMap = false;
+        String[] contracts = mContext.getResources().getStringArray(R.array.map_style_contracts);
+        String[] styles = mContext.getResources().getStringArray(R.array.map_style_names);
+        for(String addy : contracts){
+            if(TextUtils.equals(addy, asset.assetContract.address)){
+                for (String name : styles){
+                    if(TextUtils.equals(name, asset.name)){
+                        isMap = true;
+                    }
+                }
+            }
+        }
+        return isMap;
+    }
+
+    public static BlvdMap styleMetaForAsset(Asset asset){
+        BlvdMap blvdMap = new BlvdMap();
+        blvdMap.bColor = MapUtils.BASE_B_COLOR;
+        blvdMap.styleUrl = MapUtils.BASE_STYLE;
+
+        if(TextUtils.equals(asset.name, "BLVD Map Digital Midnight")){
+            blvdMap.bColor = "#0f4f64";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89h15w503121ikd9csbbany";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map Nomekop")){
+            blvdMap.bColor = "#8ff0c7";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89h4v0k032l1illxgdlw5vx";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map Frozen Wonderland")){
+            blvdMap.bColor = "#19c2fa";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89h82pd035x1iqvnmj6ka0k";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map Nightshade")){
+            blvdMap.bColor = "#241f33";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89h990u035q1ine1oxj409a";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map Endless Summer")){
+            blvdMap.bColor = "#982f67";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89gwm0u02um1ill9rd2py9b";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map North Pole")){
+            blvdMap.bColor = "#9cbcc2";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89h6had034s1inzsvnoogzy";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map Halloween 2019")){
+            blvdMap.bColor = "#000000";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89h350g031b1inz9yhxt2hh";
+        }
+
+        if(TextUtils.equals(asset.name, "BLVD Map Scribble")){
+            blvdMap.bColor = "#D1D1D1";
+            blvdMap.styleUrl = "mapbox://styles/ktmdavid229/ck89gz1xa02ys1ikdbyieru39";
+        }
+
+        return blvdMap;
     }
 }

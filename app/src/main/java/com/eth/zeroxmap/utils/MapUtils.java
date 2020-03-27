@@ -8,6 +8,7 @@ import com.airbnb.lottie.L;
 import com.eth.zeroxmap.model.opensea.Asset;
 import com.eth.zeroxmap.model.opensea.Trait;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.pixplicity.easyprefs.library.Prefs;
 
 public class MapUtils {
     public static final String BASE_STYLE = "mapbox://styles/ktmdavid229/ck6ihr3100e0r1ipi4nle1ubp";
@@ -15,12 +16,17 @@ public class MapUtils {
 
     public static String getMapStyle() {
         String style = BASE_STYLE;
-
+        if(Prefs.getString(Constants.PREF_MAP_STYLE, null) != null){
+            style = Prefs.getString(Constants.PREF_MAP_STYLE, null);
+        }
         return style;
     }
 
     public static String getMapBuildingColor() {
         String style = BASE_B_COLOR;
+        if(Prefs.getString(Constants.PREF_MAP_B_COLOR, null) != null){
+            style = Prefs.getString(Constants.PREF_MAP_B_COLOR, null);
+        }
         return style;
     }
 
