@@ -607,7 +607,7 @@ public class FoamVisionMapFragment extends BaseFragment {
         if (firstCamera) {
             CameraPosition position = new CameraPosition.Builder()
                     .target(new LatLng(lastLoc.getLatitude(), lastLoc.getLongitude()))
-                    .zoom(17)
+                    .zoom(16)
                     .tilt(60)
                     .bearing(lastLoc.getBearing())
                     .build();

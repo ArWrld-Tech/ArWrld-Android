@@ -197,10 +197,10 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(42)
                 .withSelectable(false));
-        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_dao))
-                .withIcon(R.mipmap.ic_map)
-                .withIdentifier(43)
-                .withSelectable(false));
+//        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_dao))
+//                .withIcon(R.mipmap.ic_map)
+//                .withIdentifier(43)
+//                .withSelectable(false));
 
         //divider FOAM
         drawerItems.add(new SectionDrawerItem().withName("FOAM"));
@@ -230,7 +230,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(51)
                 .withSelectable(true));
-        drawerItems.add(new PrimaryDrawerItem().withName("BLVD Marketplace")
+        drawerItems.add(new PrimaryDrawerItem().withName("Map Styles Marketplace")
                 .withIcon(R.mipmap.ic_token)
                 .withIdentifier(61)
                 .withSelectable(false));

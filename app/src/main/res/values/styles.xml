@@ -17,7 +17,7 @@
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
 
-        <item name="android:windowBackground">@color/bg_color</item>
+        <item name="android:windowBackground">@color/dash_bg</item>
 
         <item name="contentPadding">0dp</item>
         <item name="cardCornerRadius">3dp</item>
@@ -37,7 +37,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/bg_color</item>
+        <item name="android:windowBackground">@color/dash_bg</item>
 
         <item name="cardCornerRadius">1dp</item>
         <item name="cardElevation">3dp</item>

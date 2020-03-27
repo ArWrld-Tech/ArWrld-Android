@@ -24,7 +24,7 @@
 
     <color name="status_color">@color/colorPrimaryDark</color>
     <color name="ab_color">@color/colorPrimary</color>
-    <color name="bg_color">#040306</color>
+    <color name="bg_color">@color/colorDark</color>
     <color name="card_color">@color/white_</color>
     <color name="nav_color">@color/black_</color>
     <color name="text_color">@color/black_</color>

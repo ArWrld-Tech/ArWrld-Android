@@ -6,11 +6,11 @@ public class Constants {
 
     public static final String EARTH_MARKETPALCE = "https://opensea.io/assets/0xearth";
 
-    public static final String EARTH_SITE = "https://0xearth.gituhb.io";
-    public static final String EARTH_DAO = "https://0xearth.gituhb.io";
+    public static final String EARTH_SITE = "https://0xearth.github.io";
+    public static final String EARTH_DAO = "https://0xearth.github.io";
 
 
-    public static final String BLVD_MARKETPALCE = "https://opensea.io/assets/blvd";
+    public static final String BLVD_MARKETPALCE = "https://opensea.io/assets/blvd?refinementList%5Basset_contract.address%5D%5B0%5D=0xf101430f3c4295958a06b8366e7a097596f2d612";
 
     public static final String FOAM_TOKEN_ADDRESS = "0x4946fcea7c692606e8908002e55a582af44ac121";
     public static final String URL_FOAM_TOOLS = "https://foam.tools/#/";
@@ -57,4 +57,5 @@ public class Constants {
 
     public static final String PREF_MAP_STYLE = "pref_map_style";
     public static final String PREF_MAP_B_COLOR = "pref_map_b_color";
+    public static final String PREF_WALLET_ADDY = "pref_wallet_addy";
 }
