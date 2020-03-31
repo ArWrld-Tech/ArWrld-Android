@@ -1,12 +1,21 @@
-# Sustain-Web3-hackathon-FOAM
+# ArWrld Android
 Submission for FOAM challenge(s) for the Gitcoin Sustain Web3 hackathon
 
-![App Icon](https://github.com/dhodge229/Sustain-Web3-hackathon-FOAM/blob/master/previews/app_icon.png?raw=true)
+![App Icon](https://github.com/ArWrld-Tech/ArWrld-Android/blob/master/ic_launcher-web.png?raw=true)
+
+## Integrations
+- 0xEarth : Tokenized LAND of Earth https://0xearth.github.io
+
+- FOAM : Provides the tools to enable a crowdsourced map and decentralized location services. https://foam.space/
+
+- BLVD : Tokenized Map Styles https://opensea.io/assets/blvd?query=BLVD&refinementList%5Basset_contract.address%5D%5B0%5D=0xf101430f3c4295958a06b8366e7a097596f2d612
+
+- ERC-721 / NFT digital collectibles view in Augmented Reality 
 
 ### Youtube Demo Video
 [![Demo Video](https://img.youtube.com/vi/Rgc2mX6d-ek/0.jpg)](https://www.youtube.com/watch?v=Rgc2mX6d-ek)
 
-## Gitcoin Context URls
+## Historic Context URls
 https://gitcoin.co/issue/ryan-foamspace/Sustain-Web3-hackathon/3/3960
 
 https://gitcoin.co/issue/ryan-foamspace/Sustain-Web3-hackathon/2/3961
