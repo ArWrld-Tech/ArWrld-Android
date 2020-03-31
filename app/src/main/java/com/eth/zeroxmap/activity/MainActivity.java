@@ -197,6 +197,10 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(42)
                 .withSelectable(false));
+        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_discord))
+                .withIcon(R.mipmap.ic_chat)
+                .withIdentifier(43)
+                .withSelectable(false));
 //        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_dao))
 //                .withIcon(R.mipmap.ic_map)
 //                .withIdentifier(43)
@@ -324,6 +328,9 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_SITE);
                         }
                         if (drawerItem.getIdentifier() == 43) {
+                            Utils.urlIntentWeb3(mContext, Constants.EARTH_DISCORD);
+                        }
+                        if (drawerItem.getIdentifier() == 44) {
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_DAO);
                         }
 
