@@ -39,6 +39,17 @@ public class OpenSeaApi {
                 .setCallback(callback);
     }
 
+    public static void fetchUserAssetsBlvd(Context mContext, String addy, FutureCallback<Response<String>> callback){
+        String url = Constants.OPENSEA_API_BASE + Constants.OS_ASSETS_BASE + addy + "&limit="
+                + Constants.QUERY_SIZE + "&asset_contract_address=" + "0xf101430f3c4295958a06b8366e7a097596f2d612";
+        Log.d(Constants.TAG, url);
+        Ion.with(mContext)
+                .load(url)
+                .asString()
+                .withResponse()
+                .setCallback(callback);
+    }
+
     public static List<Asset> parseOpenSeaResult(String result){
 //        Type foamPoiListType = new TypeToken<ArrayList<Asset>>(){}.getType();
         OpenSeaResponse openSeaResponse = new Gson().fromJson(result, OpenSeaResponse.class);
