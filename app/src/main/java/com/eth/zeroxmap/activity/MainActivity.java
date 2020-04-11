@@ -20,6 +20,7 @@ import com.eth.zeroxmap.fragment.ArMapFragment;
 import com.eth.zeroxmap.fragment.OpenMapFragment;
 import com.eth.zeroxmap.fragment.earth.EarthVisionMapFragment;
 import com.eth.zeroxmap.fragment.foam.FoamVisionMapFragment;
+import com.eth.zeroxmap.fragment.nft.BlvdMapStylesFragment;
 import com.eth.zeroxmap.fragment.nft.WalletViewerFragment;
 import com.eth.zeroxmap.fragment.nft.WorldViewerFragment;
 import com.eth.zeroxmap.utils.Constants;
@@ -230,9 +231,13 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 //                .withIcon(R.mipmap.ic_vision)
 //                .withIdentifier(50)
 //                .withSelectable(true));
-        drawerItems.add(new PrimaryDrawerItem().withName("Your Collectibles")
+        drawerItems.add(new PrimaryDrawerItem().withName("Collectibles")
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(51)
+                .withSelectable(true));
+        drawerItems.add(new PrimaryDrawerItem().withName("BLVD Map Styles")
+                .withIcon(R.mipmap.ic_vision)
+                .withIdentifier(52)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName("Map Styles Marketplace")
                 .withIcon(R.mipmap.ic_token)
@@ -342,6 +347,10 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                         if (drawerItem.getIdentifier() == 51) {
                             getSupportActionBar().setTitle("NFT Wallet");
                             swapFragment(new WalletViewerFragment());
+                        }
+                        if (drawerItem.getIdentifier() == 52) {
+                            getSupportActionBar().setTitle("BLVD Map Styles");
+                            swapFragment(new BlvdMapStylesFragment());
                         }
 
                         if (drawerItem.getIdentifier() == 60) {
