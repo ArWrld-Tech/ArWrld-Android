@@ -35,7 +35,7 @@ public class Constants {
 
 
     //max = 300
-    public static final Integer QUERY_SIZE = 100;
+    public static final Integer QUERY_SIZE = 275;
     public static final String OPENSEA_API_BASE = "https://api.opensea.io";
     public static final String OS_CONTRACT_BASE = "/api/v1/assets?asset_contract_address=";
     public static final String OS_ASSETS_BASE = "/api/v1/assets/?owner=";
