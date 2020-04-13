@@ -212,7 +212,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_foam_v_map))
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(1)
-                .withSelectable(false));
+                .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_foam_tool))
                 .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(2)
