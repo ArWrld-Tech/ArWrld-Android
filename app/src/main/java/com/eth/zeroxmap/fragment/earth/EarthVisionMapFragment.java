@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.activity.MainActivity;
+import com.eth.zeroxmap.api.Analytics;
 import com.eth.zeroxmap.api.Foam;
 import com.eth.zeroxmap.api.LocationApi;
 import com.eth.zeroxmap.api.OpenSeaApi;
@@ -686,6 +687,7 @@ public class EarthVisionMapFragment extends BaseFragment {
     }
 
     private void setupEarthDetailsDialog(Asset asset) {
+        Analytics.sendAnalyticEvent(mContext, "Dialog", "EARTH_Det", asset.tokenId, System.currentTimeMillis());
         LatLng latLng = MapUtils.assetToLatLng(asset);
         Location location = new Location("0xEarth");
         location.setLatitude(latLng.getLatitude());
