@@ -22,6 +22,7 @@ import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.RequestOptions;
 import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.activity.ArNftViewerActivity;
+import com.eth.zeroxmap.api.Analytics;
 import com.eth.zeroxmap.model.opensea.Asset;
 import com.eth.zeroxmap.model.styles.BlvdMap;
 import com.eth.zeroxmap.utils.CircleTransform;
@@ -176,6 +177,7 @@ public class OpenSeaWalletAdapter extends RecyclerView.Adapter<OpenSeaWalletAdap
     }
 
     private void showWhatDo(int position) {
+        Analytics.sendAnalyticEvent(mContext, "NFT", movies.get(position).assetContract.address, movies.get(position).tokenId, System.currentTimeMillis());
         AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
         alertDialog.getWindow().setBackgroundDrawableResource(R.color.colorPrimaryDark);
         alertDialog.setTitle(HtmlUtils.fromHtml("<font color='#FFFFFF'>How to use</font>"));
