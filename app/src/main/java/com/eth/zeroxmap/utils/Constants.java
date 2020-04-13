@@ -8,6 +8,7 @@ public class Constants {
 
     public static final String EARTH_SITE = "https://0xearth.github.io";
     public static final String EARTH_DAO = "https://0xearth.github.io";
+    public static final String EARTH_GLOBE = "https://0xearth.github.io/land_globe";
     public static final String EARTH_DISCORD = "https://discord.gg/A73P7aS";
 
 
