@@ -183,7 +183,6 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIdentifier(999)
                 .withSelectable(true));
 
-        //TODO ICONS
         //divider 0xEarth
         drawerItems.add(new SectionDrawerItem().withName("0xEarth"));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_v_map))
