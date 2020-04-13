@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.activity.MainActivity;
+import com.eth.zeroxmap.api.Analytics;
 import com.eth.zeroxmap.api.Foam;
 import com.eth.zeroxmap.api.LocationApi;
 import com.eth.zeroxmap.fragment.ArMapFragment;
@@ -659,6 +660,7 @@ public class FoamVisionMapFragment extends BaseFragment {
     }
 
     private void showNoPoiDialog() {
+        Analytics.sendAnalyticEvent(mContext, "Dialog", "FOAM_None", Utils.returnId(), System.currentTimeMillis());
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
         alertDialogBuilder.setTitle("FOAM POIs");
         alertDialogBuilder.setMessage("We could not find any FOAM POIs nearby, would you like to add some?");
@@ -695,6 +697,7 @@ public class FoamVisionMapFragment extends BaseFragment {
     }
 
     private void setupPoiDetailsDialog(FoamPoiMeta foamPoiMeta) {
+        Analytics.sendAnalyticEvent(mContext, "Dialog", "FOAM_Det", foamPoiMeta.meta.listingHash, System.currentTimeMillis());
         Location location = Foam.getLocationFromGeohash(foamPoiMeta);
         final Dialog dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.dialog_foam_poi);
