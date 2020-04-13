@@ -225,16 +225,6 @@ public class OpenSeaWalletAdapter extends RecyclerView.Adapter<OpenSeaWalletAdap
                         }
                     });
         }
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, HtmlUtils.fromHtml("<font color='#FFFFFF'>View in AR</font>"),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        Intent intent = new Intent(mContext, ArNftViewerActivity.class);
-                        intent.putExtra("imgUrl", movies.get(position).imageUrl);
-                        intent.putExtra("name", movies.get(position).name);
-                        mContext.startActivity(intent);
-                    }
-                });
         if (Utils.isBlvdMapAsset(mContext, movies.get(position))) {
             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, HtmlUtils.fromHtml("<font color='#FFFFFF'>Set Map Style</font>"),
                     new DialogInterface.OnClickListener() {
@@ -244,6 +234,17 @@ public class OpenSeaWalletAdapter extends RecyclerView.Adapter<OpenSeaWalletAdap
                             Prefs.putString(Constants.PREF_MAP_B_COLOR, blvdMap.bColor);
                             Prefs.putString(Constants.PREF_MAP_STYLE, blvdMap.styleUrl);
                             Toast.makeText(mContext, "Map Style Set!", Toast.LENGTH_LONG).show();
+                        }
+                    });
+        }else{
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, HtmlUtils.fromHtml("<font color='#FFFFFF'>View in AR</font>"),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            Intent intent = new Intent(mContext, ArNftViewerActivity.class);
+                            intent.putExtra("imgUrl", movies.get(position).imageUrl);
+                            intent.putExtra("name", movies.get(position).name);
+                            mContext.startActivity(intent);
                         }
                     });
         }
