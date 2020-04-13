@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "767849274137",
+    "firebase_url": "https://bc-app-a1dbe.firebaseio.com",
+    "project_id": "bc-app-a1dbe",
+    "storage_bucket": "bc-app-a1dbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767849274137:android:ce4e5f0842b3a081a58388",
+        "android_client_info": {
+          "package_name": "com.eth.zeroxmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767849274137-94r08fhds89gq63fc6vatmjr18usv6r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA35ADK0k1D16_8MF4dgypd0Gyt7j6eul8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767849274137-94r08fhds89gq63fc6vatmjr18usv6r2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
