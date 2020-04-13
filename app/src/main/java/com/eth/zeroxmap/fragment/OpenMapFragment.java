@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.activity.MainActivity;
+import com.eth.zeroxmap.api.Analytics;
 import com.eth.zeroxmap.api.Foam;
 import com.eth.zeroxmap.api.LocationApi;
 import com.eth.zeroxmap.api.OpenSeaApi;
@@ -100,7 +101,9 @@ public class OpenMapFragment extends BaseFragment {
 
     private Location lastLoc = null;
     private IconFactory iconFactory;
+    private Icon forSaleIconF;
     private Icon forSaleIcon;
+    private Icon earthIconF;
     private Icon earthIcon;
     private Icon baseIcon;
     private Icon chalIcon;
@@ -114,6 +117,8 @@ public class OpenMapFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         mContext = getContext();
         iconFactory = IconFactory.getInstance(mContext);
+        earthIconF = iconFactory.fromResource(R.mipmap.ic_earth_marker_f);
+        forSaleIconF = iconFactory.fromResource(R.mipmap.ic_for_sale_f);
         earthIcon = iconFactory.fromResource(R.mipmap.ic_earth_marker);
         forSaleIcon = iconFactory.fromResource(R.mipmap.ic_for_sale);
         baseIcon = iconFactory.fromResource(R.mipmap.ic_marker);
@@ -323,10 +328,19 @@ public class OpenMapFragment extends BaseFragment {
 
     private void addNewEarth(Asset earth) {
 //        LatLng location = MapUtils.assetToLatLng(earth);
-
         Icon icon = earthIcon;
-        if(earth.sellOrders.size() > 0){
-            icon = forSaleIcon;
+
+        int version = Utils.getEarthEditionType(earth);
+        if(version == 1) {
+            icon = earthIconF;
+            if (earth.sellOrders.size() > 0) {
+                icon = forSaleIconF;
+            }
+        }else{
+            icon = earthIcon;
+            if (earth.sellOrders.size() > 0) {
+                icon = forSaleIcon;
+            }
         }
 
         map.addMarker(new MarkerOptions()
@@ -464,7 +478,7 @@ public class OpenMapFragment extends BaseFragment {
         earthAssets.clear();
         map.clear();
         ((MainActivity) getActivity()).showLoading();
-        Foam.fetchLocalPoi(mContext, lastLoc, 200, false, new FutureCallback<Response<String>>() {
+        Foam.fetchLocalPoi(mContext, lastLoc, 1200, false, new FutureCallback<Response<String>>() {
             @Override
             public void onCompleted(Exception e, Response<String> result) {
                 try {
@@ -512,6 +526,7 @@ public class OpenMapFragment extends BaseFragment {
     }
 
     private void showNoPoiDialog() {
+        Analytics.sendAnalyticEvent(mContext, "Dialog", "FOAM_None", Utils.returnId(), System.currentTimeMillis());
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
         alertDialogBuilder.setTitle("FOAM POIs");
         alertDialogBuilder.setMessage("We could not find any FOAM POIs nearby, would you like to add some?");
@@ -548,6 +563,7 @@ public class OpenMapFragment extends BaseFragment {
     }
 
     private void setupPoiDetailsDialog(FoamPoiMeta foamPoiMeta) {
+        Analytics.sendAnalyticEvent(mContext, "Dialog", "FOAM_Det", foamPoiMeta.meta.listingHash, System.currentTimeMillis());
         Location location = Foam.getLocationFromGeohash(foamPoiMeta);
         final Dialog dialog = new Dialog(mContext);
         dialog.setContentView(R.layout.dialog_foam_poi);
@@ -646,6 +662,7 @@ public class OpenMapFragment extends BaseFragment {
     }
 
     private void setupEarthDetailsDialog(Asset asset) {
+        Analytics.sendAnalyticEvent(mContext, "Dialog", "EARTH_Det", asset.tokenId, System.currentTimeMillis());
         LatLng latLng = MapUtils.assetToLatLng(asset);
         Location location = new Location("0xEarth");
         location.setLatitude(latLng.getLatitude());
