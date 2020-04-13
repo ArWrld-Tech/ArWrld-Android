@@ -194,6 +194,10 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIcon(R.mipmap.ic_token)
                 .withIdentifier(41)
                 .withSelectable(false));
+        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_globe))
+                .withIcon(R.mipmap.ic_map)
+                .withIdentifier(45)
+                .withSelectable(false));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_site))
                 .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(42)
@@ -347,6 +351,10 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                         if (drawerItem.getIdentifier() == 44) {
                             Analytics.sendAnalyticEvent(mContext, "Nav", "Earth_Dao", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_DAO);
+                        }
+                        if (drawerItem.getIdentifier() == 45) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "Earth_Globe", Utils.returnId(), System.currentTimeMillis());
+                            Utils.urlIntentWeb3(mContext, Constants.EARTH_GLOBE);
                         }
 
 
