@@ -190,14 +190,6 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                 .withIcon(R.mipmap.ic_vision)
                 .withIdentifier(40)
                 .withSelectable(true));
-        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_market))
-                .withIcon(R.mipmap.ic_token)
-                .withIdentifier(41)
-                .withSelectable(false));
-        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_globe))
-                .withIcon(R.mipmap.ic_map)
-                .withIdentifier(45)
-                .withSelectable(false));
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_site))
                 .withIcon(R.mipmap.ic_tools)
                 .withIdentifier(42)
@@ -205,6 +197,10 @@ public class MainActivity extends BaseActivity implements PermissionListener {
         drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_discord))
                 .withIcon(R.mipmap.ic_chat)
                 .withIdentifier(43)
+                .withSelectable(false));
+        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_market))
+                .withIcon(R.mipmap.ic_token)
+                .withIdentifier(41)
                 .withSelectable(false));
 //        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_dao))
 //                .withIcon(R.mipmap.ic_map)
@@ -236,11 +232,11 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 //                .withIdentifier(50)
 //                .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName("Collectibles")
-                .withIcon(R.mipmap.ic_vision)
+                .withIcon(R.mipmap.ic_wallet)
                 .withIdentifier(51)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName("BLVD Map Styles")
-                .withIcon(R.mipmap.ic_vision)
+                .withIcon(R.mipmap.ic_wallet)
                 .withIdentifier(52)
                 .withSelectable(true));
         drawerItems.add(new PrimaryDrawerItem().withName("Map Styles Marketplace")
@@ -259,6 +255,11 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 //                .withSelectable(false));
 
         drawerItems.add(new SectionDrawerItem().withName("Extras"));
+        drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_oxe_globe))
+                .withIcon(R.mipmap.ic_map)
+                .withIdentifier(45)
+                .withSelectable(false));
+
         //Wallets for easy user access
         if(Utils.isAppInstalled(mContext, Constants.TRUST_WALLET_PACKAGE)){
             drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_trust_wallet))
