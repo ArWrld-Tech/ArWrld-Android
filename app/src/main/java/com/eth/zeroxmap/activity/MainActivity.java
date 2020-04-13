@@ -279,7 +279,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
         }
 
         Analytics.sendAnalyticEvent(mContext, "Has_Wallet", Boolean.toString(hasWallet),
-                "", System.currentTimeMillis());
+                Utils.returnId(), System.currentTimeMillis());
 
         if(!hasWallet){
             drawerItems.add(new PrimaryDrawerItem().withName(getResources().getString(R.string.nav_get_wallet))
@@ -301,6 +301,7 @@ public class MainActivity extends BaseActivity implements PermissionListener {
                                 "", System.currentTimeMillis());
                         //Base AR / Map Open
                         if (drawerItem.getIdentifier() == 999) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "0x_Map", Utils.returnId(), System.currentTimeMillis());
 //                            Analytics.sendAnalyticEvent());
                             //Load AR
                             getSupportActionBar().setTitle(getResources().getString(R.string.nav_local_map));
@@ -309,76 +310,95 @@ public class MainActivity extends BaseActivity implements PermissionListener {
 
                         if (drawerItem.getIdentifier() == 1) {
                             //Load AR
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "FOAM_Viz", Utils.returnId(), System.currentTimeMillis());
                             getSupportActionBar().setTitle(getResources().getString(R.string.nav_foam_v_map));
                             swapFragment(new FoamVisionMapFragment());
                         }
                         if (drawerItem.getIdentifier() == 2) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "FOAM_Tools", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.URL_FOAM_TOOLS);
                         }
                         if (drawerItem.getIdentifier() == 3) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "FOAM_Map", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.URL_FOAM_MAP);
                         }
                         if (drawerItem.getIdentifier() == 4) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "FOAM_Uni", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.URL_FOAM_TOKEN_UNISWAP);
                         }
 
                         if (drawerItem.getIdentifier() == 40) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "EARTH_Viz", Utils.returnId(), System.currentTimeMillis());
                             getSupportActionBar().setTitle(getResources().getString(R.string.nav_oxe_v_map));
                             swapFragment(new EarthVisionMapFragment());
                         }
                         if (drawerItem.getIdentifier() == 41) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "EARTH_Mkt", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_MARKETPALCE);
                         }
                         if (drawerItem.getIdentifier() == 42) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "EARTH_Site", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_SITE);
                         }
                         if (drawerItem.getIdentifier() == 43) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "EARTH_Discord", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_DISCORD);
                         }
                         if (drawerItem.getIdentifier() == 44) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "Earth_Dao", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.EARTH_DAO);
                         }
 
 
                         if (drawerItem.getIdentifier() == 50) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "NFT_Viz", Utils.returnId(), System.currentTimeMillis());
                             getSupportActionBar().setTitle("NFT Visuals");
                             swapFragment(new WorldViewerFragment());
                         }
                         if (drawerItem.getIdentifier() == 51) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "NFT_Wallet", Utils.returnId(), System.currentTimeMillis());
                             getSupportActionBar().setTitle("NFT Wallet");
                             swapFragment(new WalletViewerFragment());
                         }
                         if (drawerItem.getIdentifier() == 52) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "BLVD_Maps", Utils.returnId(), System.currentTimeMillis());
                             getSupportActionBar().setTitle("BLVD Map Styles");
                             swapFragment(new BlvdMapStylesFragment());
                         }
 
                         if (drawerItem.getIdentifier() == 60) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "BLVD_Maps", Utils.returnId(), System.currentTimeMillis());
                             getSupportActionBar().setTitle("BLVD Map Styles");
                             swapFragment(new WorldViewerFragment());
                         }
 
                         if (drawerItem.getIdentifier() == 61) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "BLVD_Mkt", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.BLVD_MARKETPALCE);
                         }
 
                         //Open given wallets
                         if (drawerItem.getIdentifier() == 10) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "WAL_Trust", Utils.returnId(), System.currentTimeMillis());
                             Utils.launchAppPackage(mContext, Constants.TRUST_WALLET_PACKAGE);
                         }
                         if (drawerItem.getIdentifier() == 11) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "WAL_Meta", Utils.returnId(), System.currentTimeMillis());
                             Utils.launchAppPackage(mContext, Constants.METAMASK_WALLET_PACKAGE);
                         }
                         if (drawerItem.getIdentifier() == 12) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "WAL_Status", Utils.returnId(), System.currentTimeMillis());
                             Utils.launchAppPackage(mContext, Constants.STATUS_WALLET_PACKAGE);
                         }
 
                         if (drawerItem.getIdentifier() == 20) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "WAL_New", Utils.returnId(), System.currentTimeMillis());
                             Utils.launchAppPackage(mContext, Constants.TRUST_WALLET_PACKAGE);
                         }
 
                         //Footer click
                         if (drawerItem.getIdentifier() == 100) {
+                            Analytics.sendAnalyticEvent(mContext, "Nav", "ETH", Utils.returnId(), System.currentTimeMillis());
                             Utils.urlIntentWeb3(mContext, Constants.URL_BUILT_ON_ETH);
                         }
                         return false;
