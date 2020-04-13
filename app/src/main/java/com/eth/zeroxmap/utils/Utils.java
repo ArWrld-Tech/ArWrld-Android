@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.eth.zeroxmap.R;
 import com.eth.zeroxmap.api.Analytics;
 import com.eth.zeroxmap.model.opensea.Asset;
+import com.eth.zeroxmap.model.opensea.Trait;
 import com.eth.zeroxmap.model.styles.BlvdMap;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.Config;
@@ -22,6 +23,7 @@ import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableException;
 import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
+import com.pixplicity.easyprefs.library.Prefs;
 
 import uk.co.appoly.arcorelocation.utils.ARLocationPermissionHelper;
 
@@ -211,5 +213,32 @@ public class Utils {
         }
 
         return blvdMap;
+    }
+
+    public static Integer getEarthEditionType(Asset asset){
+        int edition = 0;
+        if (asset.traits.size() > 0) {
+            for (Trait trait : asset.traits) {
+                if (TextUtils.equals("edition", trait.traitType)) {
+                    if(TextUtils.equals("first", (String) trait.value)){
+                        edition = 1;
+                    }
+                    if(TextUtils.equals("second", (String) trait.value)){
+                        edition = 2;
+                    }
+                }
+            }
+        }else{
+            Log.e(Constants.TAG, "ASSET-LATLNG: " + "NO TRAITS");
+        }
+        return edition;
+    }
+
+    public static String returnId(){
+        String id = "";
+        if(Prefs.getString(Constants.PREF_WALLET_ADDY, null) != null){
+            id = Prefs.getString(Constants.PREF_WALLET_ADDY, null);
+        }
+        return id;
     }
 }
